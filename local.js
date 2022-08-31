@@ -185,11 +185,17 @@ var server = net.createServer(function(connection) {
           const agent = new HttpsProxyAgent(opts);
 
           ws = new WebSocket(aServer, {
+            headers: {
+              "User-Agent": "Mozilla"
+            },
             protocol: 'binary',
             agent
           });
         } else {
           ws = new WebSocket(aServer, {
+            headers: {
+              "User-Agent": "Mozilla"
+            },
             protocol: 'binary'
           });
         }
